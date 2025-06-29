@@ -56,8 +56,8 @@ hotel_booking_cancellation_prediction_project/
 │   └── xgboost_cancellation_model.pkl
 │
 ├── plots/
-│   └── univariate_analysis
-│   └── bivariate_analysis
+│   ├── univariate_analysis/
+│   └── bivariate_analysis/
 │
 ├── dashboard/
 │   └── cancellation_dashboard.jpg

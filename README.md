@@ -16,7 +16,7 @@ This project aims to predict hotel booking cancellations using historical bookin
 
 **Team Member 1:** [Sai Sreekar Reddy Konda](https://github.com/Saisreekarreddykonda)
 
-**Team Member 2:** Diti Solanki
+**Team Member 2:** [Diti Solanki](https://github.com/Diti1311)
 
 **Organization:** Trendalytix
 
@@ -211,6 +211,7 @@ Varshini Chilakala
 📧 Email: [varshini.chilakala27@gmail.com](mailto:varshini.chilakala27@gmail.com)
 
 🐙 GitHub: [@Varshini-Chilakala](https://github.com/Varshini-Chilakala)
+
 
 ---
 

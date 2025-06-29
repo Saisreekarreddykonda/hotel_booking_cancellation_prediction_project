@@ -10,10 +10,15 @@ The ultimate goal is to assist hotel management in reducing cancellations, optim
 🤝 Team Details
 
 Project Type: Internship-based Team Project
+
 Team Leader: [Varshini Chilakala](https://github.com/Varshini-Chilakala)
+
 Team Member 1: [Sai Sreekar Reddy Konda](https://github.com/Saisreekarreddykonda)
+
 Team Member 2: [Diti Solanki]
+
 Organization: Trendalytix
+
 Tools Used: Python, Pandas, Scikit-learn, XGBoost, Power BI, Jupyter Notebook
 
 

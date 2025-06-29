@@ -1,48 +1,47 @@
-Hotel Booking Cancellation Prediction
+# 🏨 Hotel Booking Cancellation Prediction
 
-🚀 Project Overview
+## 🚀 Project Overview
 
-This project aims to predict hotel booking cancellations using historical booking data. It was developed as part of an internship project under the guidance of Trendalytix. The system leverages data preprocessing, exploratory data analysis (EDA), and machine learning techniques to forecast whether a booking will be canceled or not.
+This project aims to predict hotel booking cancellations using historical booking data. It was developed as part of an internship project under the guidance of **Trendalytix**. The system leverages data preprocessing, exploratory data analysis (EDA), and machine learning techniques to forecast whether a booking will be canceled or not.
 
-The ultimate goal is to assist hotel management in reducing cancellations, optimizing bookings, and improving business decisions using a predictive pipeline and dashboard.
+🎯 **Objective**: Assist hotel management in reducing cancellations, optimizing bookings, and improving strategic decisions using a predictive ML pipeline and an interactive Power BI dashboard.
 
+---
 
-🤝 Team Details
+## 🤝 Team Details
 
-Project Type: Internship-based Team Project
+**Project Type:** Internship-based Team Project
+**Team Leader:** [Varshini Chilakala](https://github.com/Varshini-Chilakala)
+**Team Member 1:** [Sai Sreekar Reddy Konda](https://github.com/Saisreekarreddykonda)
+**Team Member 2:** Diti Solanki
+**Organization:** Trendalytix
+**Tools Used:** Python, Pandas, Scikit-learn, XGBoost, Power BI, Jupyter Notebook
 
-Team Leader: [Varshini Chilakala](https://github.com/Varshini-Chilakala)
+---
 
-Team Member 1: [Sai Sreekar Reddy Konda](https://github.com/Saisreekarreddykonda)
+## 🗅️ Problem Statement
 
-Team Member 2: [Diti Solanki]
+Booking cancellations can lead to significant revenue loss and poor capacity planning for hotels. The goal of this project is to predict which bookings are likely to be canceled, using features like:
 
-Organization: Trendalytix
+* Lead time
+* Customer type
+* Deposit type
+* Booking changes, etc.
 
-Tools Used: Python, Pandas, Scikit-learn, XGBoost, Power BI, Jupyter Notebook
+---
 
+## 📊 Dataset
 
-🗅️ Problem Statement
+* **Source:** [Kaggle – Hotel Booking Demand Dataset](https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand)
+* **File:** `hotel_bookings.csv`
+* **Size:** \~32 features, 119,000+ rows
+* **Cleaned Version:** `cleaned_hotel_bookings_data.csv`
 
-Booking cancellations impact hotel revenue and occupancy planning. The goal is to identify bookings that are more likely to be canceled based on features such as lead time, customer type, deposit type, and more.
+---
 
+## 📁 Folder Structure
 
-📊 Dataset
-
-Source: Kaggle / Public Hotel Booking Dataset
-
-https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand
-
-File: hotel_bookings.csv
-
-Size: ~32 features, 119,000+ rows
-
-Cleaned Dataset: cleaned_hotel_bookings_data.csv
-
-
-
-📁 Folder Structure
-
+```
 hotel_booking_cancellation_prediction_project/
 │
 ├── data/
@@ -68,133 +67,146 @@ hotel_booking_cancellation_prediction_project/
 ├── hotel_booking_pipeline.py
 ├── README.md
 ├── requirements.txt
+```
 
+---
 
-⚙️ Project Workflow
+## ⚙️ Project Workflow
 
-1. Data Cleaning & Preprocessing
+### 1. 🧼 Data Cleaning & Preprocessing
 
-Removed duplicates and handled missing values
+* Removed duplicates and handled missing values (`company`, `agent`, `children`, `country`)
+* Capped outliers in `lead_time`, `adr`, and `previous_cancellations`
+* Feature engineering:
 
-Filled company, agent, children, country intelligently
+  * `total_stay`, `total_guests`, `room_mismatch`, `is_family`, `is_repeated_customer`
+* Merged date-related columns into a unified `arrival_date`
 
-Capped extreme outliers in lead_time, adr, and previous_cancellations
+---
 
-Created new features:
+### 2. 📊 Exploratory Data Analysis (EDA)
 
-total_stay, total_guests, room_mismatch, is_family, is_repeated_customer
+* **Univariate Analysis:**
 
-Converted dates into a single arrival_date
+  * Cancellation distribution
+  * Hotel type frequency
+  * Distribution of `lead_time`, `meal`, `market_segment`, etc.
 
+* **Bivariate Analysis:**
 
-2. Exploratory Data Analysis (EDA)
+  * Cancellation rates by:
 
-Univariate: Distributions of cancellations, hotel types, meals, customer types
+    * Hotel type
+    * Deposit type
+    * Customer type
+    * Month and year (seasonal trends)
+    * Country
+    * Lead time
+    * Market segment
 
-Bivariate: Cancellation rates by year, month, deposit type, car parking
+---
 
+### 3. 🧠 Feature Engineering
 
-3. Feature Engineering
+* One-hot encoded all relevant categorical features
+* Removed date and ID-like columns (`reservation_status_date`, `arrival_date_year`, etc.)
+* Scaled/standardized features as needed
+* Final feature set: \~60 engineered predictors
 
-One-hot encoded all relevant categorical features
+---
 
-Dropped ID-like and date decomposition columns
+### 4. 🤖 Model Development
 
-Scaled numerical fields (if needed)
+#### Algorithms Tested:
 
+* ✅ **XGBoost (Best Model)**
+* Random Forest
+* Logistic Regression
+* Decision Tree
 
-4. Model Development
+#### Final XGBoost Model Results:
 
-Algorithms used:
+* **Accuracy:** 84%
+* **Precision (Canceled):** 0.74
+* **Recall (Canceled):** 0.67
+* **F1-Score (Canceled):** 0.71
 
-Random Forest
-
-Logistic Regression
-
-XGBoost ✅ (Best)
-
-Decision Tree
-
-Final XGBoost Model Results:
-
-Accuracy: 84%
-
-Precision (Canceled): 0.74
-
-Recall (Canceled): 0.67
-
-F1-score (Canceled): 0.71
-
-### 📈 Model Performance Comparison
+#### 📈 Model Performance Comparison
 
 | Model               | Accuracy | Precision (Canceled) | Recall (Canceled) | F1-Score (Canceled) |
-|---------------------|----------|-----------------------|--------------------|----------------------|
-| Random Forest        | 84%      | 0.74                  | 0.67               | 0.70                 |
-| Logistic Regression  | 74%      | 0.53                  | 0.79               | 0.63                 |
-| XGBoost (Best Model) | 84%      | 0.74                  | 0.67               | 0.71                 |
-| Decision Tree        | 70%      | 0.48                  | 0.89               | 0.62                 |
+| ------------------- | -------- | -------------------- | ----------------- | ------------------- |
+| Random Forest       | 84%      | 0.74                 | 0.67              | 0.70                |
+| Logistic Regression | 74%      | 0.53                 | 0.79              | 0.63                |
+| **XGBoost (Best)**  | 84%      | 0.74                 | 0.67              | 0.71                |
+| Decision Tree       | 70%      | 0.48                 | 0.89              | 0.62                |
 
+---
 
-5. Dashboard Development (Power BI)
+### 5. 📊 Dashboard Development (Power BI)
 
-Created KPIs for cancellations by year, country, month
+* Built dynamic KPIs and slicers to filter data by:
 
-Tracked total bookings, customer type mix, ADR patterns
+  * Booking year, country, month
+  * Deposit type, hotel type, and customer type
+* Key visual insights:
 
-Visual insights on lead time and parking space effects
+  * Cancellations vs. country
+  * Parking requests and cancellation relationship
+  * Lead time patterns
+  * ADR and revenue implications
 
-Included slicers, stacked bars, and interactive visual filters
+---
 
+### 6. 📦 Final Deliverables
 
-6. Final Deliverables
+* 📄 **Project Report** (PDF)
+* 🔧 **Trained ML Model** (`xgboost_cancellation_model.pkl`)
+* 📊 **Interactive Dashboard** (Power BI)
+* 🔬 **Prediction Pipeline Script** (`hotel_booking_pipeline.py`)
 
-📄 Detailed project report
+---
 
-🔧 Trained ML model (.pkl)
+## 🔄 How to Use This Project
 
-📊 Dashboard visual in Power BI
+### ⚙️ Setup Environment
 
-🔬 Predictive Python script for inference
-
-
-
-🔄 How to Use This Project
-
-Setup Environment
-
+```bash
 pip install -r requirements.txt
+```
 
+### 🧪 Predict on New Data
 
-Predict on New Data
-
+```bash
 python hotel_booking_pipeline.py
+```
 
+### 📒 Explore in Jupyter Notebook
 
-Jupyter Notebook Exploration
+Open:
 
-Open the full workflow:
-
+```
 notebooks/Hotel_bookings.ipynb
+```
 
+---
 
-Key Learnings
+## 📚 Key Learnings
 
-Importance of feature engineering and EDA
+* Real-world data issues: missing values, skewed distributions, class imbalance
+* Feature engineering and its impact on model performance
+* Importance of EDA in uncovering hidden insights
+* Deployable scripts and dashboard integration for business use
 
-Handling real-world data: imbalances, outliers, missing values
+---
 
-Deployment-readiness of models using joblib and scripting
+## 💼 Contact
 
-Dashboard creation with business relevance
+**Team Leader:** Varshini Chilakala
+📧 Email: [varshini.chilakala27@gmail.com](mailto:varshini.chilakala27@gmail.com)
+🐙 GitHub: [@Varshini-Chilakala](https://github.com/Varshini-Chilakala)
 
+---
 
-💼 Contact
+## 🚩 Acknowledgment
 
-For any queries related to the project:Varshini Chilakala
-Email: [varshini.chilakala27@gmail.com]
-GitHub: [Varshini-Chilakala](https://github.com/Varshini-Chilakala)
-
-
-🚩 Acknowledgment
-
-Thanks to Trendalytix and mentors for their guidance during this internship project.
+Thanks to **Trendalytix** and our mentors for their support and valuable guidance during this internship project.

@@ -67,7 +67,8 @@ hotel_booking_cancellation_prediction_project/
 │   └── cancellation_dashboard.jpg
 │
 ├── report/
-│   └── Hotel_Booking_Cancellation_Prediction_Report.pdf
+│   └── Detailed_Hotel_Booking_Cancellation_Prediction_Report.pdf
+│   └── Brief_Hotel_Booking_Cancellation_Prediction_Report.pdf
 │
 ├── hotel_booking_pipeline.py
 ├── README.md
